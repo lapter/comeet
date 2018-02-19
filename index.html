@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <title>The best weather on earth</title>
+</head>
+
+<body ng-app="comeetApp">
+
+  <section class="container-fluid" ng-controller="weatherController as vm">
+    <h1>The best weather on earth</h1>
+    <div class="row">
+        <div class="col-md-12">
+            Please Select sex <select ng-model="vm.selectedSex" ng-change="vm.changeOptimal()">
+                <option value="M">Male</option>
+                <option value="F">Female</option> 
+            </select>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>Optimal:
+          <br> Temp: {{vm.optimal.temp}} Humidity: {{vm.optimal.humidity}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h5>List of most convienient cities/stations</h5>
+         <span>Last Update:  <b>{{vm.lastUpdate}}</b></span>
+        <ul class="noBullet">
+          <li ng-repeat="s in  vm.stations; "> {{$index + 1}}. Name: {{s.name}} ,Temp: {{s.temp}} ,Humidity: {{s.humidity}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+</body>
+
+<script src="./node_modules/angular/angular.min.js"></script>
+<script src="./node_modules/underscore/underscore-min.js"></script>
+<script src="./node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script src="./app/app.js"></script>
+<script src="./app/components/weather/weatherService.js"></script>
+<script src="./app/components/weather/weatherController.js"></script>
+
+<link href="./node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" rel="stylesheet" />
+<link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="./app/site.css" rel="stylesheet" />
+
+</html>
