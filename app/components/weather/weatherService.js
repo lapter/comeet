@@ -16,12 +16,11 @@
 
        
         function getOptimalStations(optimal) {
-
             return $http.get(BOX_END_POINT)
                 .then(function (response) {
                     return orderStations(response.data, optimal);
                 }, function (error) {
-                    console.log("Error retrieving data: " + error.message);
+                    console.log("Error retrieving data: " + error);
                 });
         }
 
